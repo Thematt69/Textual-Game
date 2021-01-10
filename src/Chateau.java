@@ -25,12 +25,20 @@ public class Chateau {
 				+ ">" + nbrPiece + " Pieces - " + difficulte;
 	}
 	
+	/**
+	 * Renvoie la pièce correspondant à l'index
+	 * @param index
+	 * @return
+	 */
 	public Piece getPiece(int index) {
 		return Pieces.elementAt(index);
 	}
 	
+	/**
+	 * Renvoie la dernière pièce du chateau
+	 * @return
+	 */
 	public Piece getEndPiece() {
 		return Pieces.lastElement();
 	}
-	
 }

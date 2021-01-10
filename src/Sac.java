@@ -41,51 +41,72 @@ public class Sac {
 		return message;
 	}
 	
-	public void addObjet(Objet objet) {
-		if(objet.getType() == TypeObjet.GEMME) {
-			if(slot1.getType() == TypeObjet.GEMME) {
+	/**
+	 * Ajoute un objet, renvoie faux si le sac est plein
+	 * @param objet
+	 * @return
+	 */
+	public boolean addObjet(Objet objet) {
+		if(objet.getType() == TypeObjet.GEMME && slot1 != null && slot2 != null && slot3 != null && slot4 != null && slot5 != null && slot6 != null) {
+			if(slot1 != null && slot1.getType() == TypeObjet.GEMME) {
 				this.slot1.setQuantite(this.slot1.getQuantite()+objet.getQuantite());
+				return true;
 			}
-			else if(slot2.getType() == TypeObjet.GEMME) {
+			else if(slot2 != null && slot2.getType() == TypeObjet.GEMME) {
 				this.slot2.setQuantite(this.slot2.getQuantite()+objet.getQuantite());
+				return true;
 			}
-			else if(slot3.getType() == TypeObjet.GEMME) {
+			else if(slot3 != null && slot3.getType() == TypeObjet.GEMME) {
 				this.slot3.setQuantite(this.slot3.getQuantite()+objet.getQuantite());
+				return true;
 			}
-			else if(slot4.getType() == TypeObjet.GEMME) {
+			else if(slot4 != null && slot4.getType() == TypeObjet.GEMME) {
 				this.slot4.setQuantite(this.slot4.getQuantite()+objet.getQuantite());
+				return true;
 			}
-			else if(slot5.getType() == TypeObjet.GEMME) {
+			else if(slot5 != null && slot5.getType() == TypeObjet.GEMME) {
 				this.slot5.setQuantite(this.slot5.getQuantite()+objet.getQuantite());
+				return true;
 			}
-			else if(slot6.getType() == TypeObjet.GEMME) {
+			else if(slot6 != null && slot6.getType() == TypeObjet.GEMME) {
 				this.slot6.setQuantite(this.slot6.getQuantite()+objet.getQuantite());
+				return true;
 			}
 			else {
-				System.out.println("Votre sac est plein !\nL'objet suivant n'a pu être ajouté : " + objet);
+				System.out.println(">Votre sac est plein !\n"
+						+ ">L'objet suivant n'a pu être ajouté : " + objet);
+				return false;
 			}
 		}
 		else {
 			if(slot1 == null) {
 				this.slot1=objet;
+				return true;
 			}
 			else if(slot2 == null) {
 				this.slot2=objet;
+				return true;
 			}
 			else if(slot3 == null) {
 				this.slot3=objet;
+				return true;
 			}
 			else if(slot4 == null) {
 				this.slot4=objet;
+				return true;
 			}
 			else if(slot5 == null) {
 				this.slot5=objet;
+				return true;
 			}
 			else if(slot6 == null) {
 				this.slot6=objet;
+				return true;
 			}
 			else {
-				System.out.println("Votre sac est plein !\nL'objet suivant n'a pu être ajouté : " + objet);
+				System.out.println(">Votre sac est plein !\n"
+						+ ">L'objet suivant n'a pu être ajouté : " + objet);
+				return false;
 			}
 		}
 			

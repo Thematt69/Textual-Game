@@ -40,14 +40,26 @@ public class Objet {
 		}
 	}
 
+	/**
+	 * Retourne le type
+	 * @return
+	 */
 	public TypeObjet getType() {
 		return type;
 	}
 
+	/**
+	 * Défini la quantité
+	 * @param quantite
+	 */
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
 
+	/**
+	 * Retourne la quantité
+	 * @return
+	 */
 	public int getQuantite() {
 		return quantite;
 	}

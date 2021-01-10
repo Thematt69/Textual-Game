@@ -1,21 +1,41 @@
 import java.util.Vector;
 
 public class Config {
-	
-	public Chateau chateau1;	
-	public Chateau chateau2;	
-	public Chateau chateau3;	
-	public Chateau chateau4;
-	public Vector<Objet> objets;
+	public Vector<Objet> objects;
 	
 	public Config() {
-		getChateau1();
-		getChateau2();
-		getChateau3();
-		getChateau4();	
+		this.objects = new Vector<Objet>();
+		setUpObject();
 	}
 	
-	void getChateau1() {
+	public void setUpObject(){
+		
+		/* Armmes */
+		objects.add(new Objet("Epée de qualité", TypeObjet.ARMES, 4, 10, 1));
+		objects.add(new Objet("Epée de qualité", TypeObjet.ARMES, 4, 10, 1));
+		objects.add(new Objet("Epée de qualité", TypeObjet.ARMES, 4, 10, 1));
+		
+		/* Gemmes */
+		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 1));
+		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 2));
+		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 3));
+		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 4));
+		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 2));
+		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 3));
+		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 5));
+		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 1));
+		
+		/* Divers */
+		objects.add(new Objet("Rubik's Cube", TypeObjet.DIVERS, 0, 1, 1));
+		objects.add(new Objet("Ancienne lettre", TypeObjet.DIVERS, 0, 0, 1));
+		objects.add(new Objet("Divers", TypeObjet.DIVERS, 0, 0, 1));
+		objects.add(new Objet("Stylo", TypeObjet.DIVERS, 0, 1, 1));
+		
+		/* Clés */
+		//TODO A l'avenir
+	}
+	
+	public Chateau getChateau1() {
 		Vector<Piece> PieceChateau1 = new Vector<Piece>();
 		
 		Piece piece1 = new Piece("Piece 1", 6, 6, null, null, null, null);
@@ -43,10 +63,10 @@ public class Config {
 		PieceChateau1.add(piece5);
 		PieceChateau1.add(piece6);
 		
-		chateau1 = new Chateau("Forteresse du Périlly","Description",PieceChateau1.size(),DifficulteChateau.FACILE,PieceChateau1);
+		return new Chateau("Forteresse du Périlly","Description",PieceChateau1.size(),DifficulteChateau.FACILE,PieceChateau1);
 	}
 	
-	void getChateau2() {
+	public Chateau getChateau2() {
 		Vector<Piece> PieceChateau2 = new Vector<Piece>();
 		
 		Piece piece1 = new Piece("Piece 1", 6, 6, null, null, null, null);
@@ -88,10 +108,10 @@ public class Config {
 		PieceChateau2.add(piece8);
 		PieceChateau2.add(piece9);
 		
-		chateau2 = new Chateau("Château de Champilly","Description",PieceChateau2.size(),DifficulteChateau.MOYEN,PieceChateau2);
+		return new Chateau("Château de Champilly","Description",PieceChateau2.size(),DifficulteChateau.MOYEN,PieceChateau2);
 	}
 	
-	void getChateau3() {
+	public Chateau getChateau3() {
 		Vector<Piece> PieceChateau3 = new Vector<Piece>();
 		
 		Piece piece1 = new Piece("Piece 1", 6, 6, null, null, null, null);
@@ -150,10 +170,10 @@ public class Config {
 		PieceChateau3.add(piece11);
 		PieceChateau3.add(piece12);
 		
-		chateau3 = new Chateau("Bastion de Goluçon","Description",PieceChateau3.size(),DifficulteChateau.DIFFICILE,PieceChateau3);
+		return new Chateau("Bastion de Goluçon","Description",PieceChateau3.size(),DifficulteChateau.DIFFICILE,PieceChateau3);
 	}
 	
-	void getChateau4() {
+	public Chateau getChateau4() {
 		Vector<Piece> PieceChateau4 = new Vector<Piece>();
 		
 		Piece piece1 = new Piece("Piece 1", 6, 6, null, null, null, null);
@@ -225,7 +245,7 @@ public class Config {
 		PieceChateau4.add(piece15);
 		PieceChateau4.add(piece16);
 		
-		chateau4 = new Chateau("Citadelle de la Gosier","Description",PieceChateau4.size(),DifficulteChateau.EXTREME,PieceChateau4);
+		return new Chateau("Citadelle de la Gosier","Description",PieceChateau4.size(),DifficulteChateau.EXTREME,PieceChateau4);
 	}
 
 }

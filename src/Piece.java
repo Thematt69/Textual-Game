@@ -26,6 +26,11 @@ public class Piece {
 		return message;
 	}
 
+	/**
+	 * Défini la pièce adjacente
+	 * @param piece
+	 * @param direction
+	 */
 	public void setPiece(Piece piece, String direction) {
 		switch (direction) {
 			case "Nord":
@@ -46,6 +51,10 @@ public class Piece {
 		}
 	}
 	
+	/**
+	 * Renvoie toutes les pièces adjacentes
+	 * @return
+	 */
 	public Vector<String> getPiecesAdjacentes(){
 		Vector<String> Pieces = new Vector<String>();
 		
@@ -66,18 +75,34 @@ public class Piece {
 		
 	}
 
+	/**
+	 * Envoie la pièce au Nord
+	 * @return
+	 */
 	public Piece getNord() {
 		return nord;
 	}
 
+	/**
+	 * Envoie la pièce au Sud
+	 * @return
+	 */
 	public Piece getSud() {
 		return sud;
 	}
 
+	/**
+	 * Envoie la pièce à l'Est
+	 * @return
+	 */
 	public Piece getEst() {
 		return est;
 	}
 
+	/**
+	 * Envoie la pièce à l'Ouest
+	 * @return
+	 */
 	public Piece getOuest() {
 		return ouest;
 	}

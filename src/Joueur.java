@@ -16,26 +16,50 @@ public class Joueur {
 			return nom + " - " + xp + " xp\n" + sac;
 	}
 
+	/**
+	 * Retourne le nom
+	 * @return
+	 */
 	public String getNom() {
 		return nom;
 	}
 
+	/**
+	 * Retourne le sac
+	 * @return
+	 */
 	public Sac getSac() {
 		return sac;
 	}
 
-	public void addObjet(Objet objet) {
-		this.sac.addObjet(objet);
+	/**
+	 * Ajoute un objet dans le sac
+	 * @param objet
+	 */
+	public boolean addObjet(Objet objet) {
+		return this.sac.addObjet(objet);
 	}
 
+	/**
+	 * Renvoie l'expérience
+	 * @return
+	 */
 	public int getXp() {
 		return xp;
 	}
 
+	/**
+	 * Défini l'expérience
+	 * @param xp
+	 */
 	public void setXp(int xp) {
 		this.xp = xp;
 	}
 
+	/**
+	 * Défini le nom
+	 * @param nom
+	 */
 	public void setNom(String nom) {
 		this.nom = nom;
 	}

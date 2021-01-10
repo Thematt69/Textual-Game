@@ -4,21 +4,76 @@ public class Game {
 
 	private Chateau chateau;
 	private Piece piece;
-	private Scanner scanner;
+	private Joueur player = new Joueur("", new Sac(null, null, null, null, null, null), 0);
+	private Scanner scanner = new Scanner(System.in);
 	private boolean isUnknown = true;
 	private String input = "";
+	private Config config = new Config();
 	
-	public Game(Scanner scanner) {
-		this.scanner = scanner;
-	}
+	public Game() {}
 	
+	/**
+	 * Début de la partie
+	 */
 	public void start() {
+		
+		/* Identification du joueur */
+		
+		System.out.println(">Indiquer le nom de votre personnage : ");
+
+		do {
+			input = scanner.nextLine();
+			if(input.contains("Help") || input.contains("help")) {
+				isUnknown = true;
+				getHelp();
+			}else if(!input.isEmpty()) {
+				isUnknown = false;
+				player.setNom(input);
+				
+			}else {
+				isUnknown = true;
+				System.out.println(">Commande inconnue !");
+			}
+		} while (isUnknown);
+		
+		/* Sélection de la difficulté */
+		
+		System.out.println(">Choissisez une difficulté (FACILE,MOYEN,DIFFICILE,EXTREME)");
+
+		do {
+			input = scanner.nextLine();
+			if(input.contains("Help") || input.contains("help")) {
+				isUnknown = true;
+				getHelp();
+			}else if(input.equalsIgnoreCase("FACILE")) {
+				isUnknown = false;
+				setChateau(config.getChateau1());
+			}else if(input.equalsIgnoreCase("MOYEN")) {
+				isUnknown = false;
+				setChateau(config.getChateau2());
+			}else if(input.equalsIgnoreCase("DIFFICILE")) {
+				isUnknown = false;
+				setChateau(config.getChateau3());
+			}else if(input.equalsIgnoreCase("EXTREME")) {
+				isUnknown = false;
+				setChateau(config.getChateau4());
+			}else {
+				isUnknown = true;
+				System.out.println(">Commande inconnue !");
+			}
+		} while (isUnknown);
+		
+		/* Message de bienvenue */
 		
 		System.out.println(">Bienvenue au " + chateau);
 		
 		next(chateau.getPiece(0));
 	}
 	
+	/**
+	 * Passer une autre pièce
+	 * @param nextPiece
+	 */
 	public void next(Piece nextPiece) {
 		setPiece(nextPiece);
 		
@@ -30,6 +85,8 @@ public class Game {
 				+ ">Vous arrivez dans " + piece + "\n"
 				+ ">Les pièces adjacentes sont : \n"
 				+ ">" + piece.getPiecesAdjacentes());
+		getRandomObjet();
+		System.out.println(">Dans qu'elle pièce voulez-vous allez ? (Saisissez la direction)");
 		
 		do {
 			input = scanner.nextLine();
@@ -51,23 +108,80 @@ public class Game {
 		} while (isUnknown);
 	}
 	
+	/**
+	 * Affiche si un objet a été trouver dans la pièce
+	 */
+	public void getRandomObjet() {
+		if(Math.random() >= 0.25) {
+			int rand = (int) (Math.random() * ( (config.objects.size()) - 1 ));
+			Objet objet = config.objects.elementAt(rand);
+			System.out.println(">Vous avez voyez " + objet + "\n"
+					+ ">Voulez-vous le récuperez ? (y/n)");
+			
+			do {
+				input = scanner.nextLine();
+				if(input.equalsIgnoreCase("y") || input.equalsIgnoreCase("o")) {
+					if(player.addObjet(objet)) {	
+						isUnknown = false;
+						System.out.println(">" + objet + " a été ajouté à votre sac.");
+						config.objects.remove(objet);
+					}
+				}else if(input.equalsIgnoreCase("n")) {
+					isUnknown = false;
+				}else {
+					isUnknown = true;
+					System.out.println(">Commande inconnue !");
+				}
+			} while (isUnknown);
+		}
+		
+	}
+	
+	/**
+	 * Fin de la partie
+	 */
 	public void end() {
 		System.out.println(">------------------------\n"
 				+ ">Vous arrivez à la sortie de chateau !\n"
-				+ ">--------------\n"
-				+ ">Félicitation !\n"
-				+ ">--------------");
-		System.exit(1);
+				+ ">------------------------\n"
+				+ ">     Félicitation !\n"
+				+ ">------------------------");
+		System.out.println(">Voulez-vous recommencez ? (y/n)");
+		do {
+			input = scanner.nextLine();
+			if(input.equalsIgnoreCase("y") || input.equalsIgnoreCase("o")) {
+				isUnknown = false;
+			}else if(input.equalsIgnoreCase("n")) {
+				isUnknown = false;
+				System.exit(1);
+			}else {
+				isUnknown = true;
+				System.out.println(">Commande inconnue !");
+			}
+		} while (isUnknown);
 	}
 
+	/**
+	 * Modifier le château en cours
+	 * @param chateau
+	 */
 	public void setChateau(Chateau chateau) {
 		this.chateau = chateau;
 	}
 
+	/**
+	 * Modifier la pièce en cours
+	 * @param piece
+	 */
 	public void setPiece(Piece piece) {
 		this.piece = piece;
 	}
 	
+	/**
+	 * Passer à une autre pièce, retourne faux si l'accès n'existe pas
+	 * @param direction
+	 * @return
+	 */
 	public boolean nextDirection(String direction) {
 		switch (direction) {
 		case "NORD":
@@ -100,6 +214,9 @@ public class Game {
 		}
 	}
 	
+	/**
+	 * Renvoie les commandes disponibles dans la partie
+	 */
 	public void getHelp() {
 		System.out.println(">But du jeu : Vous arrivez dans un batiment et devez en ressortir.\n"
 				+ ">Pour cela, il vous faudra explorez toutes les Pieces et vaincre les différents monstres.\n"

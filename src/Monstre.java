@@ -21,12 +21,28 @@ public class Monstre {
 		return nom + " - " + pv  + " pv (" + etat + ", " + type + ")";
 	}
 	
+	/**
+	 * Renvoie les points de vie
+	 * @param pv
+	 */
 	public void subPv(int pv) {
 		this.pv -= pv;
 	}
 	
+	/**
+	 * Ajouter de points de vie
+	 * @param pv
+	 */
 	public void addPv(int pv) {
 		this.pv += pv;
 	}
+
+	/**
+	 * Change l'état
+	 * @param etat
+	 */
+	public void setEtat(EtatMonstre etat) {
+		this.etat = etat;
+	}	
 	
 }
