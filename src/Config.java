@@ -16,14 +16,14 @@ public class Config {
 	}
 	
 	void getChateau1() {
-		Vector<Pièce> pièceChateau1 = new Vector<Pièce>();
+		Vector<Piece> PieceChateau1 = new Vector<Piece>();
 		
-		Pièce piece1 = new Pièce("Pièce 1", 6, 6, null, null, null, null);
-		Pièce piece2 = new Pièce("Pièce 2", 6, 6, null, null, null, null);
-		Pièce piece3 = new Pièce("Pièce 3", 6, 6, null, null, null, null);
-		Pièce piece4 = new Pièce("Pièce 4", 6, 6, null, null, null, null);
-		Pièce piece5 = new Pièce("Pièce 5", 6, 6, null, null, null, null);
-		Pièce piece6 = new Pièce("Pièce 6", 6, 6, null, null, null, null);
+		Piece piece1 = new Piece("Piece 1", 6, 6, null, null, null, null);
+		Piece piece2 = new Piece("Piece 2", 6, 6, null, null, null, null);
+		Piece piece3 = new Piece("Piece 3", 6, 6, null, null, null, null);
+		Piece piece4 = new Piece("Piece 4", 6, 6, null, null, null, null);
+		Piece piece5 = new Piece("Piece 5", 6, 6, null, null, null, null);
+		Piece piece6 = new Piece("Piece 6", 6, 6, null, null, null, null);
 		
 		piece1.setPiece(piece2, "Est");
 		piece2.setPiece(piece1, "Ouest");
@@ -36,28 +36,28 @@ public class Config {
 		piece5.setPiece(piece2, "Nord");
 		piece6.setPiece(piece3, "Nord");
 		
-		pièceChateau1.add(piece1);//Haut gauche
-		pièceChateau1.add(piece2);//Haut milieu
-		pièceChateau1.add(piece3);//Haut droite
-		pièceChateau1.add(piece4);//Bas gauche
-		pièceChateau1.add(piece5);//Bas milieu
-		pièceChateau1.add(piece6);//Bas droite
+		PieceChateau1.add(piece1);
+		PieceChateau1.add(piece2);
+		PieceChateau1.add(piece3);
+		PieceChateau1.add(piece4);
+		PieceChateau1.add(piece5);
+		PieceChateau1.add(piece6);
 		
-		chateau1 = new Chateau("Forteresse du Périlly","Description",pièceChateau1.size(),DifficultéChateau.FACILE,pièceChateau1);
+		chateau1 = new Chateau("Forteresse du Périlly","Description",PieceChateau1.size(),DifficulteChateau.FACILE,PieceChateau1);
 	}
 	
 	void getChateau2() {
-		Vector<Pièce> pièceChateau2 = new Vector<Pièce>();
+		Vector<Piece> PieceChateau2 = new Vector<Piece>();
 		
-		Pièce piece1 = new Pièce("Pièce 1", 6, 6, null, null, null, null);
-		Pièce piece2 = new Pièce("Pièce 2", 6, 6, null, null, null, null);
-		Pièce piece3 = new Pièce("Pièce 3", 6, 6, null, null, null, null);
-		Pièce piece4 = new Pièce("Pièce 4", 6, 6, null, null, null, null);
-		Pièce piece5 = new Pièce("Pièce 5", 6, 6, null, null, null, null);
-		Pièce piece6 = new Pièce("Pièce 6", 6, 6, null, null, null, null);
-		Pièce piece7 = new Pièce("Pièce 7", 6, 6, null, null, null, null);
-		Pièce piece8 = new Pièce("Pièce 8", 6, 6, null, null, null, null);
-		Pièce piece9 = new Pièce("Pièce 9", 6, 6, null, null, null, null);
+		Piece piece1 = new Piece("Piece 1", 6, 6, null, null, null, null);
+		Piece piece2 = new Piece("Piece 2", 6, 6, null, null, null, null);
+		Piece piece3 = new Piece("Piece 3", 6, 6, null, null, null, null);
+		Piece piece4 = new Piece("Piece 4", 6, 6, null, null, null, null);
+		Piece piece5 = new Piece("Piece 5", 6, 6, null, null, null, null);
+		Piece piece6 = new Piece("Piece 6", 6, 6, null, null, null, null);
+		Piece piece7 = new Piece("Piece 7", 6, 6, null, null, null, null);
+		Piece piece8 = new Piece("Piece 8", 6, 6, null, null, null, null);
+		Piece piece9 = new Piece("Piece 9", 6, 6, null, null, null, null);
 		
 		piece1.setPiece(piece4, "Sud");
 		piece2.setPiece(piece5, "Sud");
@@ -78,34 +78,34 @@ public class Config {
 		piece9.setPiece(piece8, "Ouest");
 		piece9.setPiece(piece6, "Nord");
 		
-		pièceChateau2.add(piece1);//Haut gauche
-		pièceChateau2.add(piece2);//Haut milieu
-		pièceChateau2.add(piece3);//Haut droite
-		pièceChateau2.add(piece4);//Milieu gauche
-		pièceChateau2.add(piece5);//Milieu milieu
-		pièceChateau2.add(piece6);//Milieu droite
-		pièceChateau2.add(piece7);//Bas gauche
-		pièceChateau2.add(piece8);//Bas milieu
-		pièceChateau2.add(piece9);//Bas droite
+		PieceChateau2.add(piece1);
+		PieceChateau2.add(piece2);
+		PieceChateau2.add(piece3);
+		PieceChateau2.add(piece4);
+		PieceChateau2.add(piece5);
+		PieceChateau2.add(piece6);
+		PieceChateau2.add(piece7);
+		PieceChateau2.add(piece8);
+		PieceChateau2.add(piece9);
 		
-		chateau2 = new Chateau("Château de Champilly","Description",pièceChateau2.size(),DifficultéChateau.MOYEN,pièceChateau2);
+		chateau2 = new Chateau("Château de Champilly","Description",PieceChateau2.size(),DifficulteChateau.MOYEN,PieceChateau2);
 	}
 	
 	void getChateau3() {
-		Vector<Pièce> pièceChateau3 = new Vector<Pièce>();
+		Vector<Piece> PieceChateau3 = new Vector<Piece>();
 		
-		Pièce piece1 = new Pièce("Pièce 1", 6, 6, null, null, null, null);
-		Pièce piece2 = new Pièce("Pièce 2", 6, 6, null, null, null, null);
-		Pièce piece3 = new Pièce("Pièce 3", 6, 6, null, null, null, null);
-		Pièce piece4 = new Pièce("Pièce 4", 6, 6, null, null, null, null);
-		Pièce piece5 = new Pièce("Pièce 5", 6, 6, null, null, null, null);
-		Pièce piece6 = new Pièce("Pièce 6", 6, 6, null, null, null, null);
-		Pièce piece7 = new Pièce("Pièce 7", 6, 6, null, null, null, null);
-		Pièce piece8 = new Pièce("Pièce 8", 6, 6, null, null, null, null);
-		Pièce piece9 = new Pièce("Pièce 9", 6, 6, null, null, null, null);
-		Pièce piece10 = new Pièce("Pièce 10", 6, 6, null, null, null, null);
-		Pièce piece11 = new Pièce("Pièce 11", 6, 6, null, null, null, null);
-		Pièce piece12 = new Pièce("Pièce 12", 6, 6, null, null, null, null);
+		Piece piece1 = new Piece("Piece 1", 6, 6, null, null, null, null);
+		Piece piece2 = new Piece("Piece 2", 6, 6, null, null, null, null);
+		Piece piece3 = new Piece("Piece 3", 6, 6, null, null, null, null);
+		Piece piece4 = new Piece("Piece 4", 6, 6, null, null, null, null);
+		Piece piece5 = new Piece("Piece 5", 6, 6, null, null, null, null);
+		Piece piece6 = new Piece("Piece 6", 6, 6, null, null, null, null);
+		Piece piece7 = new Piece("Piece 7", 6, 6, null, null, null, null);
+		Piece piece8 = new Piece("Piece 8", 6, 6, null, null, null, null);
+		Piece piece9 = new Piece("Piece 9", 6, 6, null, null, null, null);
+		Piece piece10 = new Piece("Piece 10", 6, 6, null, null, null, null);
+		Piece piece11 = new Piece("Piece 11", 6, 6, null, null, null, null);
+		Piece piece12 = new Piece("Piece 12", 6, 6, null, null, null, null);
 		
 		piece1.setPiece(piece2, "Est");
 		piece2.setPiece(piece1, "Ouest");
@@ -137,41 +137,41 @@ public class Config {
 		piece11.setPiece(piece7, "Nord");
 		piece12.setPiece(piece8, "Nord");
 		
-		pièceChateau3.add(piece1);//Haut gauche
-		pièceChateau3.add(piece2);//Haut milieu gauche
-		pièceChateau3.add(piece3);//Haut milieu droite
-		pièceChateau3.add(piece4);//Haut droite
-		pièceChateau3.add(piece5);//Milieu gauche
-		pièceChateau3.add(piece6);//Milieu milieu gauche
-		pièceChateau3.add(piece7);//Milieu milieu droite
-		pièceChateau3.add(piece8);//Milieu droite
-		pièceChateau3.add(piece9);//Bas gauche
-		pièceChateau3.add(piece10);//Bas milieu gauche
-		pièceChateau3.add(piece11);//Bas milieu droite
-		pièceChateau3.add(piece12);//Bas droite
+		PieceChateau3.add(piece1);
+		PieceChateau3.add(piece2);
+		PieceChateau3.add(piece3);
+		PieceChateau3.add(piece4);
+		PieceChateau3.add(piece5);
+		PieceChateau3.add(piece6);
+		PieceChateau3.add(piece7);
+		PieceChateau3.add(piece8);
+		PieceChateau3.add(piece9);
+		PieceChateau3.add(piece10);
+		PieceChateau3.add(piece11);
+		PieceChateau3.add(piece12);
 		
-		chateau3 = new Chateau("Bastion de Goluçon","Description",pièceChateau3.size(),DifficultéChateau.DIFFICILE,pièceChateau3);
+		chateau3 = new Chateau("Bastion de Goluçon","Description",PieceChateau3.size(),DifficulteChateau.DIFFICILE,PieceChateau3);
 	}
 	
 	void getChateau4() {
-		Vector<Pièce> pièceChateau4 = new Vector<Pièce>();
+		Vector<Piece> PieceChateau4 = new Vector<Piece>();
 		
-		Pièce piece1 = new Pièce("Pièce 1", 6, 6, null, null, null, null);
-		Pièce piece2 = new Pièce("Pièce 2", 6, 6, null, null, null, null);
-		Pièce piece3 = new Pièce("Pièce 3", 6, 6, null, null, null, null);
-		Pièce piece4 = new Pièce("Pièce 4", 6, 6, null, null, null, null);
-		Pièce piece5 = new Pièce("Pièce 5", 6, 6, null, null, null, null);
-		Pièce piece6 = new Pièce("Pièce 6", 6, 6, null, null, null, null);
-		Pièce piece7 = new Pièce("Pièce 7", 6, 6, null, null, null, null);
-		Pièce piece8 = new Pièce("Pièce 8", 6, 6, null, null, null, null);
-		Pièce piece9 = new Pièce("Pièce 9", 6, 6, null, null, null, null);
-		Pièce piece10 = new Pièce("Pièce 10", 6, 6, null, null, null, null);
-		Pièce piece11 = new Pièce("Pièce 11", 6, 6, null, null, null, null);
-		Pièce piece12 = new Pièce("Pièce 12", 6, 6, null, null, null, null);
-		Pièce piece13 = new Pièce("Pièce 13", 6, 6, null, null, null, null);
-		Pièce piece14 = new Pièce("Pièce 14", 6, 6, null, null, null, null);
-		Pièce piece15 = new Pièce("Pièce 15", 6, 6, null, null, null, null);
-		Pièce piece16 = new Pièce("Pièce 16", 6, 6, null, null, null, null);
+		Piece piece1 = new Piece("Piece 1", 6, 6, null, null, null, null);
+		Piece piece2 = new Piece("Piece 2", 6, 6, null, null, null, null);
+		Piece piece3 = new Piece("Piece 3", 6, 6, null, null, null, null);
+		Piece piece4 = new Piece("Piece 4", 6, 6, null, null, null, null);
+		Piece piece5 = new Piece("Piece 5", 6, 6, null, null, null, null);
+		Piece piece6 = new Piece("Piece 6", 6, 6, null, null, null, null);
+		Piece piece7 = new Piece("Piece 7", 6, 6, null, null, null, null);
+		Piece piece8 = new Piece("Piece 8", 6, 6, null, null, null, null);
+		Piece piece9 = new Piece("Piece 9", 6, 6, null, null, null, null);
+		Piece piece10 = new Piece("Piece 10", 6, 6, null, null, null, null);
+		Piece piece11 = new Piece("Piece 11", 6, 6, null, null, null, null);
+		Piece piece12 = new Piece("Piece 12", 6, 6, null, null, null, null);
+		Piece piece13 = new Piece("Piece 13", 6, 6, null, null, null, null);
+		Piece piece14 = new Piece("Piece 14", 6, 6, null, null, null, null);
+		Piece piece15 = new Piece("Piece 15", 6, 6, null, null, null, null);
+		Piece piece16 = new Piece("Piece 16", 6, 6, null, null, null, null);
 		
 		piece1.setPiece(piece2, "Est");
 		piece1.setPiece(piece5, "Sud");
@@ -208,24 +208,24 @@ public class Config {
 		piece15.setPiece(piece14, "Ouest");
 		piece16.setPiece(piece15, "Ouest");
 		
-		pièceChateau4.add(piece1);
-		pièceChateau4.add(piece2);
-		pièceChateau4.add(piece3);
-		pièceChateau4.add(piece4);
-		pièceChateau4.add(piece5);
-		pièceChateau4.add(piece6);
-		pièceChateau4.add(piece7);
-		pièceChateau4.add(piece8);
-		pièceChateau4.add(piece9);
-		pièceChateau4.add(piece10);
-		pièceChateau4.add(piece11);
-		pièceChateau4.add(piece12);
-		pièceChateau4.add(piece13);
-		pièceChateau4.add(piece14);
-		pièceChateau4.add(piece15);
-		pièceChateau4.add(piece16);
+		PieceChateau4.add(piece1);
+		PieceChateau4.add(piece2);
+		PieceChateau4.add(piece3);
+		PieceChateau4.add(piece4);
+		PieceChateau4.add(piece5);
+		PieceChateau4.add(piece6);
+		PieceChateau4.add(piece7);
+		PieceChateau4.add(piece8);
+		PieceChateau4.add(piece9);
+		PieceChateau4.add(piece10);
+		PieceChateau4.add(piece11);
+		PieceChateau4.add(piece12);
+		PieceChateau4.add(piece13);
+		PieceChateau4.add(piece14);
+		PieceChateau4.add(piece15);
+		PieceChateau4.add(piece16);
 		
-		chateau4 = new Chateau("Citadelle de la Gosier","Description",pièceChateau4.size(),DifficultéChateau.EXTREME,pièceChateau4);
+		chateau4 = new Chateau("Citadelle de la Gosier","Description",PieceChateau4.size(),DifficulteChateau.EXTREME,PieceChateau4);
 	}
 
 }

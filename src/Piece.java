@@ -1,16 +1,16 @@
 import java.util.Vector;
 
-public class Pièce {
+public class Piece {
 
 	private String nom;
 	private double x;
 	private double y;
-	private Pièce nord;
-	private Pièce sud;
-	private Pièce est;
-	private Pièce ouest;
+	private Piece nord;
+	private Piece sud;
+	private Piece est;
+	private Piece ouest;
 	
-	public Pièce(String nom, double x, double y, Pièce nord, Pièce sud, Pièce est, Pièce ouest) {
+	public Piece(String nom, double x, double y, Piece nord, Piece sud, Piece est, Piece ouest) {
 		this.nom = nom;
 		this.x = x;
 		this.y = y;
@@ -26,7 +26,7 @@ public class Pièce {
 		return message;
 	}
 
-	public void setPiece(Pièce piece, String direction) {
+	public void setPiece(Piece piece, String direction) {
 		switch (direction) {
 			case "Nord":
 				this.nord = piece;
@@ -46,39 +46,39 @@ public class Pièce {
 		}
 	}
 	
-	public Vector<Pièce> getPiècesAdjacentes(){
-		Vector<Pièce> pièces = new Vector<Pièce>();
+	public Vector<String> getPiecesAdjacentes(){
+		Vector<String> Pieces = new Vector<String>();
 		
 		if(nord != null) {
-			pièces.addElement(nord);
+			Pieces.addElement("Nord : " + nord);
 		}
 		if(sud != null) {
-			pièces.addElement(sud);
+			Pieces.addElement("Sud : " + sud);
 		}
 		if(est != null) {
-			pièces.addElement(est);
+			Pieces.addElement("Est : " + est);
 		}
 		if(ouest != null) {
-			pièces.addElement(ouest);
+			Pieces.addElement("Ouest : " + ouest);
 		}
 		
-		return pièces;
+		return Pieces;
 		
 	}
 
-	public Pièce getNord() {
+	public Piece getNord() {
 		return nord;
 	}
 
-	public Pièce getSud() {
+	public Piece getSud() {
 		return sud;
 	}
 
-	public Pièce getEst() {
+	public Piece getEst() {
 		return est;
 	}
 
-	public Pièce getOuest() {
+	public Piece getOuest() {
 		return ouest;
 	}
 	

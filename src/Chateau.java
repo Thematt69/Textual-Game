@@ -1,32 +1,36 @@
 import java.util.Vector;
 
-enum DifficultéChateau {FACILE,MOYEN,DIFFICILE,EXTREME};
+enum DifficulteChateau {FACILE,MOYEN,DIFFICILE,EXTREME};
 
 public class Chateau {
 
 	private String nom;
 	private String description;
-	private int nbrPièce;
-	private DifficultéChateau difficulte;
-	private Vector<Pièce> pièces;
+	private int nbrPiece;
+	private DifficulteChateau difficulte;
+	private Vector<Piece> Pieces;
 	
-	public Chateau(String nom, String description, int nbrPièce, DifficultéChateau difficulte, Vector<Pièce> pièces) {
+	public Chateau(String nom, String description, int nbrPiece, DifficulteChateau difficulte, Vector<Piece> Pieces) {
 		this.nom = nom;
 		this.description = description;
-		this.nbrPièce = nbrPièce;
+		this.nbrPiece = nbrPiece;
 		this.difficulte = difficulte;
-		this.pièces = pièces;
+		this.Pieces = Pieces;
 	}
 
 	@Override
 	public String toString() {
 		return nom + "\n"
 				+ ">" + description + "\n"
-				+ ">" + nbrPièce + " pièces - " + difficulte;
+				+ ">" + nbrPiece + " Pieces - " + difficulte;
 	}
 	
-	public Pièce getPièce(int index) {
-		return pièces.elementAt(index);
+	public Piece getPiece(int index) {
+		return Pieces.elementAt(index);
+	}
+	
+	public Piece getEndPiece() {
+		return Pieces.lastElement();
 	}
 	
 }
