@@ -2,18 +2,21 @@ import java.util.Vector;
 
 public class Config {
 	public Vector<Objet> objects;
+	public Vector<Monstre> monstres;
 	
 	public Config() {
 		this.objects = new Vector<Objet>();
+		this.monstres = new Vector<Monstre>();
 		setUpObject();
+		setUpMonstre();
 	}
 	
 	public void setUpObject(){
 		
 		/* Armmes */
 		objects.add(new Objet("Epée de qualité", TypeObjet.ARMES, 4, 10, 1));
-		objects.add(new Objet("Epée de qualité", TypeObjet.ARMES, 4, 10, 1));
-		objects.add(new Objet("Epée de qualité", TypeObjet.ARMES, 4, 10, 1));
+		objects.add(new Objet("Epée de qualité supérieur", TypeObjet.ARMES, 5, 14, 1));
+		objects.add(new Objet("Epée bas de gamme", TypeObjet.ARMES, 2, 4, 1));
 		
 		/* Gemmes */
 		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 1));
@@ -35,10 +38,18 @@ public class Config {
 		//TODO A l'avenir
 	}
 	
+	public void setUpMonstre(){
+		
+		//Monstre(String nom, int pv, EtatMonstre etat, TypeMonstre type)
+		monstres.add(new Monstre("Zombie", 4, EtatMonstre.EVEILLE, TypeMonstre.AGRESSIF));
+		monstres.add(new Monstre("Zombie", 2, EtatMonstre.ENDORMI, TypeMonstre.AGRESSIF));
+		monstres.add(new Monstre("Zombie", 3, EtatMonstre.MORT, TypeMonstre.AGRESSIF));
+	}
+	
 	public Chateau getChateau1() {
 		Vector<Piece> PieceChateau1 = new Vector<Piece>();
 		
-		Piece piece1 = new Piece("Piece 1", 6, 6, null, null, null, null);
+		Piece piece1 = new Piece("Entrée", 6, 6, null, null, null, null);
 		Piece piece2 = new Piece("Piece 2", 6, 6, null, null, null, null);
 		Piece piece3 = new Piece("Piece 3", 6, 6, null, null, null, null);
 		Piece piece4 = new Piece("Piece 4", 6, 6, null, null, null, null);
@@ -69,7 +80,7 @@ public class Config {
 	public Chateau getChateau2() {
 		Vector<Piece> PieceChateau2 = new Vector<Piece>();
 		
-		Piece piece1 = new Piece("Piece 1", 6, 6, null, null, null, null);
+		Piece piece1 = new Piece("Entrée", 6, 6, null, null, null, null);
 		Piece piece2 = new Piece("Piece 2", 6, 6, null, null, null, null);
 		Piece piece3 = new Piece("Piece 3", 6, 6, null, null, null, null);
 		Piece piece4 = new Piece("Piece 4", 6, 6, null, null, null, null);
@@ -114,7 +125,7 @@ public class Config {
 	public Chateau getChateau3() {
 		Vector<Piece> PieceChateau3 = new Vector<Piece>();
 		
-		Piece piece1 = new Piece("Piece 1", 6, 6, null, null, null, null);
+		Piece piece1 = new Piece("Entrée", 6, 6, null, null, null, null);
 		Piece piece2 = new Piece("Piece 2", 6, 6, null, null, null, null);
 		Piece piece3 = new Piece("Piece 3", 6, 6, null, null, null, null);
 		Piece piece4 = new Piece("Piece 4", 6, 6, null, null, null, null);
@@ -176,7 +187,7 @@ public class Config {
 	public Chateau getChateau4() {
 		Vector<Piece> PieceChateau4 = new Vector<Piece>();
 		
-		Piece piece1 = new Piece("Piece 1", 6, 6, null, null, null, null);
+		Piece piece1 = new Piece("Entrée", 6, 6, null, null, null, null);
 		Piece piece2 = new Piece("Piece 2", 6, 6, null, null, null, null);
 		Piece piece3 = new Piece("Piece 3", 6, 6, null, null, null, null);
 		Piece piece4 = new Piece("Piece 4", 6, 6, null, null, null, null);

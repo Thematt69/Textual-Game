@@ -64,5 +64,12 @@ public class Objet {
 		return quantite;
 	}
 
+	/**
+	 * Retourne les dégats
+	 * @return
+	 */
+	public int getDegats() {
+		return degats;
+	}
 	
 }

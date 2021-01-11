@@ -41,6 +41,26 @@ public class Sac {
 		return message;
 	}
 	
+	public Objet getObjet(int index) {
+		switch (index) {
+		case 1:
+			return this.slot1;
+		case 2:
+			return this.slot2;
+		case 3:
+			return this.slot3;
+		case 4:
+			return this.slot4;
+		case 5:
+			return this.slot5;
+		case 6:
+			return this.slot6;
+
+		default:
+			return this.slot1;
+		}
+	}
+	
 	/**
 	 * Ajoute un objet, renvoie faux si le sac est plein
 	 * @param objet

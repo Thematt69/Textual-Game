@@ -1,16 +1,20 @@
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Game {
 
 	private Chateau chateau;
 	private Piece piece;
-	private Joueur player = new Joueur("", new Sac(null, null, null, null, null, null), 0);
+	private Joueur player;
 	private Scanner scanner = new Scanner(System.in);
 	private boolean isUnknown = true;
 	private String input = "";
-	private Config config = new Config();
+	private Config config;
 	
-	public Game() {}
+	public Game() {
+		this.config = new Config();
+		this.player  = new Joueur("", new Sac(null, null, null, null, null, null), 0,20);
+	}
 	
 	/**
 	 * Début de la partie
@@ -80,32 +84,34 @@ public class Game {
 		if(piece.equals(chateau.getEndPiece())) {
 			end();
 		}
-
-		System.out.println(">------------------------\n"
-				+ ">Vous arrivez dans " + piece + "\n"
-				+ ">Les pièces adjacentes sont : \n"
-				+ ">" + piece.getPiecesAdjacentes());
-		getRandomObjet();
-		System.out.println(">Dans qu'elle pièce voulez-vous allez ? (Saisissez la direction)");
-		
-		do {
-			input = scanner.nextLine();
-			if(input.contains("Help") || input.contains("help")) {
-				isUnknown = true;
-				getHelp();
-			}else if(input.equalsIgnoreCase("NORD") && nextDirection("NORD")) {
-				isUnknown = false;
-			}else if(input.equalsIgnoreCase("SUD") && nextDirection("SUD")) {
-				isUnknown = false;
-			}else if(input.equalsIgnoreCase("EST") && nextDirection("EST")) {
-				isUnknown = false;
-			}else if(input.equalsIgnoreCase("OUEST") && nextDirection("OUEST")) {
-				isUnknown = false;
-			}else {
-				isUnknown = true;
-				System.out.println(">Direction invalide !");
-			}
-		} while (isUnknown);
+		else {
+			System.out.println(">------------------------\n"
+					+ ">Vous arrivez dans " + piece + "\n"
+					+ ">Les pièces adjacentes sont : \n"
+					+ ">" + piece.getPiecesAdjacentes());
+			getRandomObjet();
+			getRandomMonstre();
+			System.out.println(">Dans qu'elle pièce voulez-vous allez ? (Saisissez la direction)");
+			
+			do {
+				input = scanner.nextLine();
+				if(input.contains("Help") || input.contains("help")) {
+					isUnknown = true;
+					getHelp();
+				}else if(input.equalsIgnoreCase("NORD") && nextDirection("NORD")) {
+					isUnknown = false;
+				}else if(input.equalsIgnoreCase("SUD") && nextDirection("SUD")) {
+					isUnknown = false;
+				}else if(input.equalsIgnoreCase("EST") && nextDirection("EST")) {
+					isUnknown = false;
+				}else if(input.equalsIgnoreCase("OUEST") && nextDirection("OUEST")) {
+					isUnknown = false;
+				}else {
+					isUnknown = true;
+					System.out.println(">Direction invalide !");
+				}
+			} while (isUnknown);
+		}
 	}
 	
 	/**
@@ -124,7 +130,7 @@ public class Game {
 					if(player.addObjet(objet)) {	
 						isUnknown = false;
 						System.out.println(">" + objet + " a été ajouté à votre sac.");
-						config.objects.remove(objet);
+//						config.objects.remove(objet);
 					}
 				}else if(input.equalsIgnoreCase("n")) {
 					isUnknown = false;
@@ -135,6 +141,32 @@ public class Game {
 			} while (isUnknown);
 		}
 		
+	}
+	
+	public void getRandomMonstre() {
+		if(Math.random() >= 0.65) {
+			int rand = (int) (Math.random() * ((config.monstres.size()) - 1));
+			Monstre monstre = config.monstres.elementAt(rand);
+			switch (monstre.getEtat()) {
+			case ATTAQUE:
+				System.out.println(">Un " + monstre + " vous attaque !");
+				monstre.attack(player,false,scanner);
+				break;
+			case EVEILLE:
+				System.out.println(">Un " + monstre + " est éveillé mais il ne vous attaque pas, profitez-en pour l'attaquer.");
+				monstre.attack(player,true,scanner);
+				break;
+			case ENDORMI:
+				System.out.println(">Un " + monstre + " est endormi, il ne faudrait pas le réveiller.");
+				break;
+			case MORT:
+				System.out.println(">Un " + monstre + " est mort dans la pièce.");
+				break;
+
+			default:
+				break;
+			}
+		}
 	}
 	
 	/**
@@ -215,15 +247,12 @@ public class Game {
 	}
 	
 	/**
-	 * Renvoie les commandes disponibles dans la partie
+	 * Renvoie les informations néccesaires pour comprendre le jeu
 	 */
 	public void getHelp() {
 		System.out.println(">But du jeu : Vous arrivez dans un batiment et devez en ressortir.\n"
-				+ ">Pour cela, il vous faudra explorez toutes les Pieces et vaincre les différents monstres.\n"
-				+ ">Vous pourrez aussi avoir besoin de clé pour passer certaines portes.\n\n"
-				+ ">Liste des commmandes :\n"
-				+ ">Help : Affiche la liste des commandes\n"
-				+ ">Take <objet> : Récupérer un objet");
+				+ ">Pour cela, il vous faudra explorez toutes les pieces et vaincre les différents monstres.\n"
+				+ ">En explorant les pièces, vous pouvez trouvez des objets, il vous sera demandez si vous voulez le recupérer.");
 	}
 	
 	
