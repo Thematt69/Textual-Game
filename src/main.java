@@ -4,6 +4,7 @@ public class main {
 
 	public static void main(String[] args) {
 		
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		String input = "";
 		boolean isUnknown = true;

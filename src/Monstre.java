@@ -60,20 +60,20 @@ public class Monstre {
 		}
 	}
 	
-	public void combat(Objet objet, Joueur joueur, boolean isFirst) {
+	private void combat(Objet objet, Joueur joueur, boolean isFirst) {
 		boolean isDead = false;
 		do {
 			if(isFirst) {
-				System.out.println(">Vous tapez le " + this.toString() + ".");
-				this.subPv(objet.getDegats());
+				System.out.println(">Vous tapez le " + toString() + ".");
+				subPv(objet.getDegats());
 				System.out.println(">Vous infligez " + objet.getDegats() + " de dégats.");
-				if(this.getEtat() == EtatMonstre.MORT) {
-					System.out.println(">Le " + this.toString() + " est mort !");
+				if(getEtat() == EtatMonstre.MORT) {
+					System.out.println(">Le " + toString() + " est mort !");
 					isDead = true;
 				}
 			}
 			if(!isDead) {
-				System.out.println(">Le " + this.toString() + " vous attaque.");
+				System.out.println(">Le " + toString() + " vous attaque.");
 				int rand = (int) (Math.random() * (4 - 1));	
 				joueur.subPv(rand);
 				System.out.println(">Vous êtes à " + joueur.getPv() + " point de vie.");	
@@ -89,7 +89,7 @@ public class Monstre {
 	public void subPv(int pv) {
 		this.pv -= pv;
 		if(this.pv <=0) {
-			this.etat = EtatMonstre.MORT;
+			etat = EtatMonstre.MORT;
 		}
 	}
 	

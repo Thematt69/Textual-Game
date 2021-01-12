@@ -7,55 +7,73 @@ public class Config {
 	public Config() {
 		this.objects = new Vector<Objet>();
 		this.monstres = new Vector<Monstre>();
-		setUpObject();
+		setUpObjet();
 		setUpMonstre();
 	}
 	
-	public void setUpObject(){
+	private void setUpObjet(){
 		
 		/* Armmes */
+		//Objet(String nom, TypeObjet type, int degats, int prix, int quantite)
 		objects.add(new Objet("Epée de qualité", TypeObjet.ARMES, 4, 10, 1));
-		objects.add(new Objet("Epée de qualité supérieur", TypeObjet.ARMES, 5, 14, 1));
-		objects.add(new Objet("Epée bas de gamme", TypeObjet.ARMES, 2, 4, 1));
+		objects.add(new Objet("Dague", TypeObjet.ARMES, 4, 18, 1));
+		objects.add(new Objet("Arc", TypeObjet.ARMES, 2, 8, 1));
+		objects.add(new Objet("Masse", TypeObjet.ARMES, 8, 12, 1));
+		objects.add(new Objet("Fléau", TypeObjet.ARMES, 3, 6, 1));
+		objects.add(new Objet("Bâton", TypeObjet.ARMES, 1, 1, 1));
+		objects.add(new Objet("Fourche", TypeObjet.ARMES, 4, 8, 1));
+		objects.add(new Objet("Lance", TypeObjet.ARMES, 5, 11, 1));
+		objects.add(new Objet("Hache", TypeObjet.ARMES, 7, 15, 1));
+		objects.add(new Objet("Marteau", TypeObjet.ARMES, 3, 9, 1));
 		
 		/* Gemmes */
-		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 1));
+		objects.add(new Objet("Gemme", TypeObjet.GEMME, 0, 1, 1));
 		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 2));
 		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 3));
 		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 4));
 		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 2));
 		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 3));
 		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 5));
-		objects.add(new Objet("Gemmes", TypeObjet.GEMME, 0, 1, 1));
+		objects.add(new Objet("Gemme", TypeObjet.GEMME, 0, 1, 1));
 		
 		/* Divers */
 		objects.add(new Objet("Rubik's Cube", TypeObjet.DIVERS, 0, 1, 1));
-		objects.add(new Objet("Ancienne lettre", TypeObjet.DIVERS, 0, 0, 1));
-		objects.add(new Objet("Divers", TypeObjet.DIVERS, 0, 0, 1));
+		objects.add(new Objet("Parchemin", TypeObjet.DIVERS, 0, 3, 1));
+		objects.add(new Objet("Corde", TypeObjet.DIVERS, 1, 1, 1));
 		objects.add(new Objet("Stylo", TypeObjet.DIVERS, 0, 1, 1));
+		objects.add(new Objet("Torche", TypeObjet.DIVERS, 1, 1, 1));
 		
 		/* Clés */
 		//TODO A l'avenir
 	}
 	
-	public void setUpMonstre(){
+	private void setUpMonstre(){
 		
 		//Monstre(String nom, int pv, EtatMonstre etat, TypeMonstre type)
-		monstres.add(new Monstre("Zombie", 4, EtatMonstre.EVEILLE, TypeMonstre.AGRESSIF));
-		monstres.add(new Monstre("Zombie", 2, EtatMonstre.ENDORMI, TypeMonstre.AGRESSIF));
-		monstres.add(new Monstre("Zombie", 3, EtatMonstre.MORT, TypeMonstre.AGRESSIF));
+		monstres.add(new Monstre("Gobelin", 3, EtatMonstre.EVEILLE, TypeMonstre.AGRESSIF));
+		monstres.add(new Monstre("Squelette", 2, EtatMonstre.EVEILLE, TypeMonstre.AGRESSIF));
+		monstres.add(new Monstre("Bandit", 4, EtatMonstre.MORT, TypeMonstre.AGRESSIF));
+		monstres.add(new Monstre("Voleur", 3, EtatMonstre.EVEILLE, TypeMonstre.AGRESSIF));
+		monstres.add(new Monstre("Abomination", 4, EtatMonstre.EVEILLE, TypeMonstre.AGRESSIF));
+		monstres.add(new Monstre("Dragon", 12, EtatMonstre.ENDORMI, TypeMonstre.AGRESSIF));
+		monstres.add(new Monstre("Rat", 1, EtatMonstre.EVEILLE, TypeMonstre.NEUTRE));
+		monstres.add(new Monstre("Chauve souris", 2, EtatMonstre.ENDORMI, TypeMonstre.AGRESSIF));
+		monstres.add(new Monstre("Chevalier noir", 6, EtatMonstre.EVEILLE, TypeMonstre.AGRESSIF));
+		monstres.add(new Monstre("Sorcier", 4, EtatMonstre.EVEILLE, TypeMonstre.AGRESSIF));
+		
 	}
 	
 	public Chateau getChateau1() {
 		Vector<Piece> PieceChateau1 = new Vector<Piece>();
 		
 		Piece piece1 = new Piece("Entrée", 6, 6, null, null, null, null);
-		Piece piece2 = new Piece("Piece 2", 6, 6, null, null, null, null);
-		Piece piece3 = new Piece("Piece 3", 6, 6, null, null, null, null);
-		Piece piece4 = new Piece("Piece 4", 6, 6, null, null, null, null);
-		Piece piece5 = new Piece("Piece 5", 6, 6, null, null, null, null);
-		Piece piece6 = new Piece("Piece 6", 6, 6, null, null, null, null);
+		Piece piece2 = new Piece("Salon / Salle a manger", 6, 6, null, null, null, null);
+		Piece piece3 = new Piece("Salle de bain", 6, 6, null, null, null, null);
+		Piece piece4 = new Piece("Chambre", 6, 6, null, null, null, null);
+		Piece piece5 = new Piece("Chambre", 6, 6, null, null, null, null);
+		Piece piece6 = new Piece("Entrepôt", 6, 6, null, null, null, null);
 		
+		//La piece1 a accès à la piece2 par Est
 		piece1.setPiece(piece2, "Est");
 		piece2.setPiece(piece1, "Ouest");
 		piece2.setPiece(piece3, "Est");
@@ -81,14 +99,14 @@ public class Config {
 		Vector<Piece> PieceChateau2 = new Vector<Piece>();
 		
 		Piece piece1 = new Piece("Entrée", 6, 6, null, null, null, null);
-		Piece piece2 = new Piece("Piece 2", 6, 6, null, null, null, null);
-		Piece piece3 = new Piece("Piece 3", 6, 6, null, null, null, null);
-		Piece piece4 = new Piece("Piece 4", 6, 6, null, null, null, null);
-		Piece piece5 = new Piece("Piece 5", 6, 6, null, null, null, null);
-		Piece piece6 = new Piece("Piece 6", 6, 6, null, null, null, null);
-		Piece piece7 = new Piece("Piece 7", 6, 6, null, null, null, null);
-		Piece piece8 = new Piece("Piece 8", 6, 6, null, null, null, null);
-		Piece piece9 = new Piece("Piece 9", 6, 6, null, null, null, null);
+		Piece piece2 = new Piece("Salle de bain", 6, 6, null, null, null, null);
+		Piece piece3 = new Piece("Chambre", 6, 6, null, null, null, null);
+		Piece piece4 = new Piece("Chambre", 6, 6, null, null, null, null);
+		Piece piece5 = new Piece("Salon", 6, 6, null, null, null, null);
+		Piece piece6 = new Piece("Cuisine", 6, 6, null, null, null, null);
+		Piece piece7 = new Piece("Salle a manger", 6, 6, null, null, null, null);
+		Piece piece8 = new Piece("Chambre", 6, 6, null, null, null, null);
+		Piece piece9 = new Piece("Entrepôt", 6, 6, null, null, null, null);
 		
 		piece1.setPiece(piece4, "Sud");
 		piece2.setPiece(piece5, "Sud");
@@ -126,17 +144,17 @@ public class Config {
 		Vector<Piece> PieceChateau3 = new Vector<Piece>();
 		
 		Piece piece1 = new Piece("Entrée", 6, 6, null, null, null, null);
-		Piece piece2 = new Piece("Piece 2", 6, 6, null, null, null, null);
-		Piece piece3 = new Piece("Piece 3", 6, 6, null, null, null, null);
-		Piece piece4 = new Piece("Piece 4", 6, 6, null, null, null, null);
-		Piece piece5 = new Piece("Piece 5", 6, 6, null, null, null, null);
-		Piece piece6 = new Piece("Piece 6", 6, 6, null, null, null, null);
-		Piece piece7 = new Piece("Piece 7", 6, 6, null, null, null, null);
-		Piece piece8 = new Piece("Piece 8", 6, 6, null, null, null, null);
-		Piece piece9 = new Piece("Piece 9", 6, 6, null, null, null, null);
-		Piece piece10 = new Piece("Piece 10", 6, 6, null, null, null, null);
-		Piece piece11 = new Piece("Piece 11", 6, 6, null, null, null, null);
-		Piece piece12 = new Piece("Piece 12", 6, 6, null, null, null, null);
+		Piece piece2 = new Piece("Cuisine", 6, 6, null, null, null, null);
+		Piece piece3 = new Piece("Salon", 6, 6, null, null, null, null);
+		Piece piece4 = new Piece("Salle a manger", 6, 6, null, null, null, null);
+		Piece piece5 = new Piece("Salle du trône", 6, 6, null, null, null, null);
+		Piece piece6 = new Piece("Salle de bain", 6, 6, null, null, null, null);
+		Piece piece7 = new Piece("Chambre", 6, 6, null, null, null, null);
+		Piece piece8 = new Piece("Chambre", 6, 6, null, null, null, null);
+		Piece piece9 = new Piece("Chambre", 6, 6, null, null, null, null);
+		Piece piece10 = new Piece("Salle de bain", 6, 6, null, null, null, null);
+		Piece piece11 = new Piece("Salon", 6, 6, null, null, null, null);
+		Piece piece12 = new Piece("Entrepôt", 6, 6, null, null, null, null);
 		
 		piece1.setPiece(piece2, "Est");
 		piece2.setPiece(piece1, "Ouest");
@@ -188,21 +206,21 @@ public class Config {
 		Vector<Piece> PieceChateau4 = new Vector<Piece>();
 		
 		Piece piece1 = new Piece("Entrée", 6, 6, null, null, null, null);
-		Piece piece2 = new Piece("Piece 2", 6, 6, null, null, null, null);
-		Piece piece3 = new Piece("Piece 3", 6, 6, null, null, null, null);
-		Piece piece4 = new Piece("Piece 4", 6, 6, null, null, null, null);
-		Piece piece5 = new Piece("Piece 5", 6, 6, null, null, null, null);
-		Piece piece6 = new Piece("Piece 6", 6, 6, null, null, null, null);
-		Piece piece7 = new Piece("Piece 7", 6, 6, null, null, null, null);
-		Piece piece8 = new Piece("Piece 8", 6, 6, null, null, null, null);
-		Piece piece9 = new Piece("Piece 9", 6, 6, null, null, null, null);
-		Piece piece10 = new Piece("Piece 10", 6, 6, null, null, null, null);
-		Piece piece11 = new Piece("Piece 11", 6, 6, null, null, null, null);
-		Piece piece12 = new Piece("Piece 12", 6, 6, null, null, null, null);
-		Piece piece13 = new Piece("Piece 13", 6, 6, null, null, null, null);
-		Piece piece14 = new Piece("Piece 14", 6, 6, null, null, null, null);
-		Piece piece15 = new Piece("Piece 15", 6, 6, null, null, null, null);
-		Piece piece16 = new Piece("Piece 16", 6, 6, null, null, null, null);
+		Piece piece2 = new Piece("Hall", 6, 6, null, null, null, null);
+		Piece piece3 = new Piece("Cuisine", 6, 6, null, null, null, null);
+		Piece piece4 = new Piece("Salon", 6, 6, null, null, null, null);
+		Piece piece5 = new Piece("Salle a manger", 6, 6, null, null, null, null);
+		Piece piece6 = new Piece("Chambre", 6, 6, null, null, null, null);
+		Piece piece7 = new Piece("Chambre", 6, 6, null, null, null, null);
+		Piece piece8 = new Piece("Salle de bain", 6, 6, null, null, null, null);
+		Piece piece9 = new Piece("Chambre", 6, 6, null, null, null, null);
+		Piece piece10 = new Piece("Chambre", 6, 6, null, null, null, null);
+		Piece piece11 = new Piece("Salon", 6, 6, null, null, null, null);
+		Piece piece12 = new Piece("Salle de bain", 6, 6, null, null, null, null);
+		Piece piece13 = new Piece("Salle du trône", 6, 6, null, null, null, null);
+		Piece piece14 = new Piece("Cachot", 6, 6, null, null, null, null);
+		Piece piece15 = new Piece("Cachot", 6, 6, null, null, null, null);
+		Piece piece16 = new Piece("Entrepôt", 6, 6, null, null, null, null);
 		
 		piece1.setPiece(piece2, "Est");
 		piece1.setPiece(piece5, "Sud");

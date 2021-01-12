@@ -67,7 +67,7 @@ public class Sac {
 	 * @return
 	 */
 	public boolean addObjet(Objet objet) {
-		if(objet.getType() == TypeObjet.GEMME && slot1 != null && slot2 != null && slot3 != null && slot4 != null && slot5 != null && slot6 != null) {
+		if(objet.getType() == TypeObjet.GEMME && ((slot1 != null && slot1.getType() == TypeObjet.GEMME) || (slot2 != null && slot2.getType() == TypeObjet.GEMME) || (slot3 != null && slot3.getType() == TypeObjet.GEMME) || (slot4 != null && slot4.getType() == TypeObjet.GEMME) || (slot5 != null && slot5.getType() == TypeObjet.GEMME) || (slot6 != null && slot6.getType() == TypeObjet.GEMME))) {
 			if(slot1 != null && slot1.getType() == TypeObjet.GEMME) {
 				this.slot1.setQuantite(this.slot1.getQuantite()+objet.getQuantite());
 				return true;

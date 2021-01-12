@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Vector;
 
 public class Game {
 
@@ -115,7 +114,7 @@ public class Game {
 	}
 	
 	/**
-	 * Affiche si un objet a été trouver dans la pièce
+	 * Affiche si un objet a été trouver dans la pièce (75%)
 	 */
 	public void getRandomObjet() {
 		if(Math.random() >= 0.25) {
@@ -143,6 +142,9 @@ public class Game {
 		
 	}
 	
+	/**
+	 * Fait apparaitre un monstre (35%)
+	 */
 	public void getRandomMonstre() {
 		if(Math.random() >= 0.65) {
 			int rand = (int) (Math.random() * ((config.monstres.size()) - 1));
